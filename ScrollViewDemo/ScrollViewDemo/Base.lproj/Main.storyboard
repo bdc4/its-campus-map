@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wrh-Yl-qjH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wrh-Yl-qjH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Scroll View Controller-->
@@ -21,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="so3-JW-1fb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="361"/>
+            <point key="canvasLocation" x="316" y="305"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5KR-G6-Bhf">
@@ -35,36 +36,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pFB-6y-zfA">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8D8-ni-UVi">
+                                <rect key="frame" x="20" y="20" width="560" height="580"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image.png" translatesAutoresizingMaskIntoConstraints="NO" id="a8n-kY-jUQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="2000" height="1500"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Campus_map.png" translatesAutoresizingMaskIntoConstraints="NO" id="RPY-Md-Ddh"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Campus_map.png" translatesAutoresizingMaskIntoConstraints="NO" id="4EO-mW-Uux">
+                                        <rect key="frame" x="-1137" y="-1289" width="3200" height="3370"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="a8n-kY-jUQ" firstAttribute="top" secondItem="pFB-6y-zfA" secondAttribute="top" id="Ni3-S6-GcZ"/>
-                                    <constraint firstItem="a8n-kY-jUQ" firstAttribute="leading" secondItem="pFB-6y-zfA" secondAttribute="leading" id="cBG-zP-LjP"/>
-                                    <constraint firstAttribute="trailing" secondItem="a8n-kY-jUQ" secondAttribute="trailing" id="nQT-Fn-Nnq"/>
-                                    <constraint firstAttribute="bottom" secondItem="a8n-kY-jUQ" secondAttribute="bottom" id="xgJ-sn-ef5"/>
+                                    <constraint firstAttribute="bottom" secondItem="RPY-Md-Ddh" secondAttribute="bottom" id="63R-g4-P9p"/>
+                                    <constraint firstItem="RPY-Md-Ddh" firstAttribute="top" secondItem="8D8-ni-UVi" secondAttribute="top" id="Yg1-eX-Snp"/>
+                                    <constraint firstAttribute="trailing" secondItem="RPY-Md-Ddh" secondAttribute="trailing" id="hi9-T8-NKw"/>
+                                    <constraint firstItem="RPY-Md-Ddh" firstAttribute="leading" secondItem="8D8-ni-UVi" secondAttribute="leading" id="sU6-Yo-Wl5"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pFB-6y-zfA" firstAttribute="top" secondItem="Eoz-Xu-WCH" secondAttribute="top" id="8U1-qG-zbV"/>
-                            <constraint firstItem="pFB-6y-zfA" firstAttribute="leading" secondItem="Eoz-Xu-WCH" secondAttribute="leading" id="AOu-yA-psj"/>
-                            <constraint firstItem="TU8-EN-mUo" firstAttribute="top" secondItem="pFB-6y-zfA" secondAttribute="bottom" id="qp2-F7-Qhf"/>
-                            <constraint firstAttribute="trailing" secondItem="pFB-6y-zfA" secondAttribute="trailing" id="u6p-Yg-nKE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8D8-ni-UVi" secondAttribute="trailing" id="2Ld-GO-0KM"/>
+                            <constraint firstItem="8D8-ni-UVi" firstAttribute="top" secondItem="Lru-Ph-SLB" secondAttribute="bottom" id="2kM-ii-DAr"/>
+                            <constraint firstItem="TU8-EN-mUo" firstAttribute="top" secondItem="8D8-ni-UVi" secondAttribute="bottom" id="Hpg-5r-4tq"/>
+                            <constraint firstItem="8D8-ni-UVi" firstAttribute="leading" secondItem="Eoz-Xu-WCH" secondAttribute="leadingMargin" id="z55-n1-JYV"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZc-Bg-cQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="1079"/>
+            <point key="canvasLocation" x="316" y="996"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2bR-tL-U93">
+            <objects>
+                <viewController id="6RR-Uf-avd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SrS-zd-fmV"/>
+                        <viewControllerLayoutGuide type="bottom" id="WTD-WL-vK6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F2j-X7-frd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GH6-8e-69p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1061" y="794"/>
         </scene>
     </scenes>
     <resources>
-        <image name="image.png" width="2000" height="1500"/>
+        <image name="Campus_map.png" width="3200" height="3370"/>
     </resources>
 </document>

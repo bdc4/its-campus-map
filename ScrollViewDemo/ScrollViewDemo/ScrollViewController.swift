@@ -16,7 +16,7 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageView = UIImageView(image: UIImage(named: "image.png"))
+        imageView = UIImageView(image: UIImage(named: "Campus_map.png"))
         
         scrollView = UIScrollView(frame: view.bounds)
         scrollView.backgroundColor = UIColor.blackColor()
