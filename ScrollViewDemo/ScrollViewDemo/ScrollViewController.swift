@@ -58,8 +58,11 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate {
         let widthScale = scrollViewSize.width / imageViewSize.width
         let heightScale = scrollViewSize.height / imageViewSize.height
         
+        
+       
         scrollView.minimumZoomScale = min(widthScale, heightScale)
-        scrollView.zoomScale = 1.0
+        scrollView.zoomScale = 0.25
+        
     }
     
     func setupGestureRecognizer() {
