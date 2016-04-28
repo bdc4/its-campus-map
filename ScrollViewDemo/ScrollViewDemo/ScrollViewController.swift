@@ -61,7 +61,6 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate {
         let widthScale = scrollViewSize.width / imageViewSize.width
         let heightScale = scrollViewSize.height / imageViewSize.height
         
-        
        
         scrollView.minimumZoomScale = min(widthScale, heightScale)
         scrollView.zoomScale = 0.25
@@ -76,9 +75,10 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addGestureRecognizer(doubleTap)
         
         let singleTap = UITapGestureRecognizer(target: self,
-                                               action: #selector(ScrollViewController.handleDoubleTap(_:)))
+                                               action: #selector(ScrollViewController.handleSingleTap(_:)))
         singleTap.numberOfTapsRequired = 1
         singleTap.cancelsTouchesInView = false
+        scrollView.addGestureRecognizer(singleTap)
     }
     
     func handleSingleTap(recognizer: UITapGestureRecognizer) {

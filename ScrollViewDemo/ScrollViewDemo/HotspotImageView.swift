@@ -21,6 +21,7 @@ let lowerLeft = CGPoint(x: 0, y: 100)
 
 let aBuilding = Building(name: "Test Building", polygon: [upperLeft, upperRight, lowerRight, lowerLeft])
 
+
 class HotspotImageView: UIImageView {
     
     var buildings: [Building] = [aBuilding]
@@ -35,9 +36,16 @@ class HotspotImageView: UIImageView {
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first!
-        /*CGPoint touchPoint = touch.locationInView(self)
+        let touchPoint: CGPoint = touch.locationInView(self)
         for building in buildings {
-            // test for hit
+            //test if touch point is within building
+            //if CGPathContainsPoint(building, nil, touchPoint, true) {
+            //
+            //}
+            
+            //CGMutablePathRef path = CGPathCreateMutable();
+            
+            /*
             make a CGPath from the polygon
             ask the path whether it contains the touchPoint by using
             CGPathContainsPoint()
@@ -45,8 +53,9 @@ class HotspotImageView: UIImageView {
             if it does, throw up an alert and break out of the loop
             
             // if it does not, continue looping
+             */
           }
-         */
+        
         
     }
 
