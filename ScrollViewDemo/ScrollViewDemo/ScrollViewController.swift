@@ -9,13 +9,13 @@
 import UIKit
 
 class ScrollViewController: UIViewController, UIScrollViewDelegate {
-    
+    @IBOutlet var menuButton:UIBarButtonItem!
     var scrollView: UIScrollView!
     var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+            
         imageView = UIImageView(image: UIImage(named: "Campus_map.png"))
         
         scrollView = UIScrollView(frame: view.bounds)
@@ -32,6 +32,7 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate {
         setZoomScale()
         
         setupGestureRecognizer()
+            
     }
 
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
