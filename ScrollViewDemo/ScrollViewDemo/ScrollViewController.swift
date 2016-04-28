@@ -32,7 +32,12 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate {
         setZoomScale()
         
         setupGestureRecognizer()
-            
+        
+        //if self.revealViewController() != 0 {
+           // menuButton.target = self.revealViewController()
+           // menuButton.action = "revealToggle:"
+           // self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        //}
     }
 
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
