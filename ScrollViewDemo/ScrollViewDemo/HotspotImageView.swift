@@ -10,7 +10,7 @@ import UIKit
 
 struct Building {
     let name: String
-    let polygon: [CGPoint]
+    let rect: CGRect
 }
 
 
@@ -19,11 +19,16 @@ let upperRight = CGPoint(x: 100,y: 0)
 let lowerRight = CGPoint(x: 100, y: 100)
 let lowerLeft = CGPoint(x: 0, y: 100)
 
-let aBuilding = Building(name: "Test Building", polygon: [upperLeft, upperRight, lowerRight, lowerLeft])
 
+
+let aBuilding = Building(name: "Test Building", rect: CGRectMake(0, 0, 10000000, 100000000))
+
+protocol HotspotImageViewDelegate { func hotspotHit(name: String) }
 
 class HotspotImageView: UIImageView {
     
+    var delegate: HotspotImageViewDelegate! = nil
+
     var buildings: [Building] = [aBuilding]
 
     /*
@@ -37,26 +42,13 @@ class HotspotImageView: UIImageView {
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first!
         let touchPoint: CGPoint = touch.locationInView(self)
-        for building in buildings {
+        for _ in buildings {
             //test if touch point is within building
-            //if CGPathContainsPoint(building, nil, touchPoint, true) {
-            //
-            //}
-            
-            //CGMutablePathRef path = CGPathCreateMutable();
-            
-            /*
-            make a CGPath from the polygon
-            ask the path whether it contains the touchPoint by using
-            CGPathContainsPoint()
-            
-            if it does, throw up an alert and break out of the loop
-            
-            // if it does not, continue looping
-             */
+            if CGRectContainsPoint(aBuilding.rect, touchPoint) {
+            print("I've been touched!!!")
+            break
+            }
           }
-        
-        
     }
 
 }

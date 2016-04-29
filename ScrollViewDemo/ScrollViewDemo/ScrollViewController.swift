@@ -8,16 +8,18 @@
 
 import UIKit
 
-class ScrollViewController: UIViewController, UIScrollViewDelegate {
+class ScrollViewController: UIViewController, UIScrollViewDelegate, HotspotImageViewDelegate {
     
     var scrollView: UIScrollView!
     var imageView: UIImageView!
+    
+    
+    func hotspotHit(name: String) {}
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageView = UIImageView(image: UIImage(named: "Campus_map.png"))
-        
+        imageView = HotspotImageView(image: UIImage(named: "Campus_map.png"))
         scrollView = UIScrollView(frame: view.bounds)
         scrollView.backgroundColor = UIColor.blackColor()
         scrollView.contentSize = imageView.bounds.size
@@ -79,6 +81,7 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate {
         singleTap.numberOfTapsRequired = 1
         singleTap.cancelsTouchesInView = false
         scrollView.addGestureRecognizer(singleTap)
+        imageView.addGestureRecognizer(singleTap)
     }
     
     func handleSingleTap(recognizer: UITapGestureRecognizer) {
