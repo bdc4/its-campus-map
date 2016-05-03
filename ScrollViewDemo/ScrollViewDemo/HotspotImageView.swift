@@ -39,6 +39,10 @@ class HotspotImageView: UIImageView {
     }
     */
     
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        print("handling single tap")
+    }
+    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first!
         let touchPoint: CGPoint = touch.locationInView(self)

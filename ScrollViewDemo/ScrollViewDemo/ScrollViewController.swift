@@ -11,7 +11,7 @@ import UIKit
 class ScrollViewController: UIViewController, UIScrollViewDelegate, HotspotImageViewDelegate {
     
     var scrollView: UIScrollView!
-    var imageView: UIImageView!
+    var hotspotImageView: HotspotImageView!
     
     
     func hotspotHit(name: String) {}
@@ -19,14 +19,15 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate, HotspotImage
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageView = HotspotImageView(image: UIImage(named: "Campus_map.png"))
+        hotspotImageView = HotspotImageView(image: UIImage(named: "Campus_map.png"))
+        hotspotImageView.userInteractionEnabled = true
         scrollView = UIScrollView(frame: view.bounds)
         scrollView.backgroundColor = UIColor.blackColor()
-        scrollView.contentSize = imageView.bounds.size
+        scrollView.contentSize = hotspotImageView.bounds.size
         scrollView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         scrollView.contentOffset = CGPoint(x: 1000, y: 450)
         
-        scrollView.addSubview(imageView)
+        scrollView.addSubview(hotspotImageView)
         view.addSubview(scrollView)
         
         scrollView.delegate = self
@@ -37,7 +38,7 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate, HotspotImage
     }
 
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-        return imageView
+        return hotspotImageView
     }
     
     override func viewWillLayoutSubviews() {
@@ -45,7 +46,7 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate, HotspotImage
     }
     
     func scrollViewDidZoom(scrollView: UIScrollView) {
-        let imageViewSize = imageView.frame.size
+        let imageViewSize = hotspotImageView.frame.size
         let scrollViewSize = scrollView.bounds.size
         
         let verticalPadding = imageViewSize.height < scrollViewSize.height ?
@@ -58,7 +59,7 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate, HotspotImage
     }
     
     func setZoomScale() {
-        let imageViewSize = imageView.bounds.size
+        let imageViewSize = hotspotImageView.bounds.size
         let scrollViewSize = scrollView.bounds.size
         let widthScale = scrollViewSize.width / imageViewSize.width
         let heightScale = scrollViewSize.height / imageViewSize.height
@@ -76,17 +77,14 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate, HotspotImage
         doubleTap.cancelsTouchesInView = true
         scrollView.addGestureRecognizer(doubleTap)
         
-        let singleTap = UITapGestureRecognizer(target: self,
-                                               action: #selector(ScrollViewController.handleSingleTap(_:)))
+        let singleTap = UITapGestureRecognizer(target: hotspotImageView,
+                                               action: #selector(HotspotImageView.handleSingleTap(_:)))
         singleTap.numberOfTapsRequired = 1
-        singleTap.cancelsTouchesInView = false
-        scrollView.addGestureRecognizer(singleTap)
-        imageView.addGestureRecognizer(singleTap)
+        singleTap.cancelsTouchesInView = false // we're not about this boolean
+        hotspotImageView.addGestureRecognizer(singleTap)
     }
     
-    func handleSingleTap(recognizer: UITapGestureRecognizer) {
-        
-    }
+
     
     func handleDoubleTap(recognizer: UITapGestureRecognizer) {
         
