@@ -28,31 +28,36 @@ protocol HotspotImageViewDelegate { func hotspotHit(name: String) }
 class HotspotImageView: UIImageView {
     
     var delegate: HotspotImageViewDelegate! = nil
-
+    
     var buildings: [Building] = [aBuilding]
-
+    
     /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
+     // Only override drawRect: if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func drawRect(rect: CGRect) {
+     // Drawing code
+     }
+     */
     
     func handleSingleTap(recognizer: UITapGestureRecognizer) {
-        print("handling single tap")
+        let touchPoint = recognizer.locationOfTouch(0, inView: self)
+        
+        var found = false
+        for building in buildings {
+            //test if touch point is within building
+            
+            if CGRectContainsPoint(building.rect, touchPoint) {
+                print("Touch suceeded")
+                print(touchPoint.x)
+                print(touchPoint.y)
+                found = true
+                break
+            }
+        }
+        print("found is now \(found)")
+        
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let touch = touches.first!
-        let touchPoint: CGPoint = touch.locationInView(self)
-        for _ in buildings {
-            //test if touch point is within building
-            if CGRectContainsPoint(aBuilding.rect, touchPoint) {
-            print("I've been touched!!!")
-            break
-            }
-          }
-    }
-
+    
+    
 }
