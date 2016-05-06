@@ -13,15 +13,15 @@ struct Building {
     let rect: CGRect
 }
 
-
-let upperLeft = CGPoint(x: 0, y: 0)
-let upperRight = CGPoint(x: 100,y: 0)
-let lowerRight = CGPoint(x: 100, y: 100)
-let lowerLeft = CGPoint(x: 0, y: 100)
-
-
-
-let aBuilding = Building(name: "Test Building", rect: CGRectMake(0, 0, 10000000, 100000000))
+let brousseou = Building(name: "Brousseou Hall", rect: CGRectMake(1613, 3090, 250, -600))
+let galileo = Building(name: "Galileo Hall", rect: CGRectMake(1712, 3413, 500, -230))
+let garaventa = Building(name: "Garaventa Hall", rect: CGRectMake(2880, 3712, 190, -260))
+let dante = Building(name: "Dante Hall", rect: CGRectMake(2890, 3400, 390, -235))
+let sah = Building(name: "Saint Albert Hall Library", rect: CGRectMake(3315, 3712, 250, -235))
+let delasalle = Building(name: "De La Salle Hall", rect: CGRectMake(3961, 3478, 200, -380))
+let bjWest = Building(name: "Brother Jerome West Hall", rect: CGRectMake(1622, 4037, 220, -315))
+let sichel = Building(name: "Sichel Hall", rect: CGRectMake(1873, 3686, 300, -160))
+let fab = Building(name: "Filippi Administrative Building", rect: CGRectMake(1852, 3993, 325, -190))
 
 protocol HotspotImageViewDelegate { func hotspotHit(name: String) }
 
@@ -29,7 +29,7 @@ class HotspotImageView: UIImageView {
     
     var delegate: HotspotImageViewDelegate! = nil
     
-    var buildings: [Building] = [aBuilding]
+    var buildings: [Building] = [brousseou, galileo, garaventa, dante, sah, delasalle, bjWest, sichel, fab]
     
     /*
      // Only override drawRect: if you perform custom drawing.
@@ -43,18 +43,21 @@ class HotspotImageView: UIImageView {
         let touchPoint = recognizer.locationOfTouch(0, inView: self)
         
         var found = false
+        var name: String = "N/A"
         for building in buildings {
             //test if touch point is within building
             
             if CGRectContainsPoint(building.rect, touchPoint) {
-                print("Touch suceeded")
-                print(touchPoint.x)
-                print(touchPoint.y)
+              
                 found = true
+                name = building.name
                 break
             }
         }
+        print(touchPoint.x)
+        print(touchPoint.y)
         print("found is now \(found)")
+        print("building name is \(name)")
         
     }
     
