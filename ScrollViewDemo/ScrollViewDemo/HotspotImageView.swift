@@ -22,6 +22,9 @@ let delasalle = Building(name: "De La Salle Hall", rect: CGRectMake(3961, 3478, 
 let bjWest = Building(name: "Brother Jerome West Hall", rect: CGRectMake(1622, 4037, 220, -315))
 let sichel = Building(name: "Sichel Hall", rect: CGRectMake(1873, 3686, 300, -160))
 let fab = Building(name: "Filippi Administrative Building", rect: CGRectMake(1852, 3993, 325, -190))
+let fah = Building(name: "Filippi Academic Hall", rect: CGRectMake(3736, 4080, 490, -255))
+let augustine = Building(name: "Augustine Hall", rect: CGRectMake(3785, 3700, 480, -110))
+let dryOlive = Building(name: "Dryden/Oliver", rect: CGRectMake(2726, 2944, 360, -480))
 
 protocol HotspotImageViewDelegate { func hotspotHit(name: String) }
 
@@ -29,7 +32,8 @@ class HotspotImageView: UIImageView {
     
     var delegate: HotspotImageViewDelegate! = nil
     
-    var buildings: [Building] = [brousseou, galileo, garaventa, dante, sah, delasalle, bjWest, sichel, fab]
+    var buildings: [Building] = [brousseou, galileo, garaventa, dante, sah, delasalle, bjWest, sichel, fab, fah,
+                                 augustine, dryOlive]
     
     /*
      // Only override drawRect: if you perform custom drawing.
